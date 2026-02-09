@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="AI-powered image captioning application using deep learning. Upload images and get accurate, descriptive captions instantly.">
+    <meta name="keywords" content="image captioning, AI, deep learning, BLIP, computer vision, image description">
+    <meta name="author" content="Image Captioning App">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Image Captioning - AI-Powered Image Description">
+    <meta property="og:description"
+        content="Generate accurate captions for your images using state-of-the-art deep learning models">
+    <meta property="og:type" content="website">
+
+    <title>Image Captioning - AI Vision</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <!-- Background -->
+    <div class="background-animation"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="logo">Image Captioning</h1>
+            <p class="tagline">AI-powered image description using deep learning</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Card -->
+            <div class="card">
+                <h2 class="card-title">Upload Image</h2>
+
+                <!-- Upload Zone -->
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-icon">📸</div>
+                    <p class="upload-text">Click to upload or drag and drop</p>
+                    <p class="upload-hint">PNG, JPG, GIF, BMP, WebP • Max 16MB</p>
+                </div>
+
+                <!-- Hidden File Input -->
+                <input type="file" id="fileInput" accept="image/*">
+
+                <!-- Error Message -->
+                <div class="error-message" id="errorMessage"></div>
+
+                <!-- Preview Container -->
+                <div class="preview-container" id="previewContainer">
+                    <img src="" alt="Image Preview" class="image-preview" id="imagePreview">
+
+                    <div class="button-group">
+                        <button class="btn btn-primary" id="generateDetailedBtn">
+                            Generate Caption
+                        </button>
+                        <button class="btn btn-secondary" id="newImageBtn">
+                            Upload New
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p class="loading-text">Analyzing image...</p>
+            </div>
+
+            <!-- Caption Display -->
+            <div class="caption-container" id="captionContainer">
+                <div class="card">
+                    <h2 class="card-title">Generated Caption</h2>
+                    <div class="caption-box">
+                        <p class="caption-text" id="captionText"></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>Powered by <strong>BLIP AI Model</strong></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
